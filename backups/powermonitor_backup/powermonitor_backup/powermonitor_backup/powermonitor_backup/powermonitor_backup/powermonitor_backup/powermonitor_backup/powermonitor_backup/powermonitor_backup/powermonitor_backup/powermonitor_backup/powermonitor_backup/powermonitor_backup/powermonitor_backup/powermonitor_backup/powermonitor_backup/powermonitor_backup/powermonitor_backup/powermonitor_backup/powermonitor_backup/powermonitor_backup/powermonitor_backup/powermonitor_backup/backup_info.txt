@@ -1,0 +1,5 @@
+# Power Monitor Backup
+# Created: Thu 24 Jul 05:06:09 BST 2025
+# Device ID: powermon_100000008d8d6dc5
+# Location: Rockhill
+# Service Status: active
