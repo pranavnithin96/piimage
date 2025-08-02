@@ -1,4 +1,3 @@
-sudo tee /opt/powermonitor/auto_setup_debug.sh > /dev/null << 'EOF'
 #!/bin/bash
 
 echo "=== AUTO-SETUP DEBUG START ==="
@@ -67,4 +66,3 @@ else
 fi
 
 echo "=== AUTO-SETUP DEBUG END ==="
-EOF
