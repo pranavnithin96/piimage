@@ -3,8 +3,13 @@ echo "🚀 PowerMonitor Complete Installation"
 echo "===================================="
 
 # Copy the enhanced setup to current directory if needed
-if [ ! -f "enhanced_turnkey_setup.py" ]; then
-    echo "✅ enhanced_turnkey_setup.py already present"
+if [ -f "src/turnkey_setup_interactive.py" ]; then
+    echo "✅ turnkey_setup_interactive.py found"
+    cp src/turnkey_setup_interactive.py enhanced_turnkey_setup.py
+else
+    echo "❌ turnkey_setup_interactive.py not found!"
+    echo "Please check that you have the complete repository."
+    exit 1
 fi
 
 # Run the deployment script
