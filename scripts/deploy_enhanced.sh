@@ -41,7 +41,10 @@ sudo chown pi:pi /opt/powermonitor/turnkey_setup.py
 
 # Step 5: Update the auto-setup script for SSH login
 echo "🔑 Updating auto-setup for SSH login..."
-sudo tee /opt/powermonitor/auto_setup.sh > /dev/null << 'EOF'
+sudo cp scripts/auto_setup.sh /opt/powermonitor/auto_setup.sh
+echo "🔧 Installing interactive setup script..."
+sudo cp src/turnkey_setup_interactive.py /opt/powermonitor/turnkey_setup_interactive.py
+sudo chmod +x /opt/powermonitor/turnkey_setup_interactive.py
 #!/bin/bash
 
 # Enhanced Auto-run setup script on SSH login
@@ -55,7 +58,7 @@ if [[ -n "$SSH_CONNECTION" ]] && [[ $- == *i* ]]; then
         echo "Features: Custom device names + Automatic timezone detection"
         echo "Starting configuration wizard..."
         echo ""
-        python3 /opt/powermonitor/turnkey_setup.py
+        python3 /opt/powermonitor/turnkey_setup_interactive.py
         
         # If setup completed successfully, show success message
         if [ -f "/opt/powermonitor/.setup_complete" ]; then
